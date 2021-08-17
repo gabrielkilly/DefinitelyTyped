@@ -40,6 +40,10 @@ export interface CarouselPluginTypes {
     options?: any;
 }
 
+interface CarouselBreakpoint {
+    [breakpointNumber: number]: Pick<CarouselProps, Exclude<keyof CarouselProps, "breakpoints">>
+}
+
 export interface CarouselProps {
     itemWidth?: number | undefined;
     value?: number | undefined;
@@ -49,7 +53,7 @@ export interface CarouselProps {
     draggable?: boolean | undefined;
     animationSpeed?: number | undefined;
     className?: string | undefined;
-    breakpoints?: Pick<CarouselProps, Exclude<keyof CarouselProps, "breakpoints" | "plugins">> | undefined;
+    breakpoints?: CarouselBreakpoint | undefined;
     plugins?: Array<string|CarouselPluginTypes> | undefined;
 }
 
